@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-
 export function HeroSection() {
   return (
     <section id="hero" className="relative py-20">
@@ -7,9 +5,9 @@ export function HeroSection() {
         <div className="flex flex-col items-center space-y-8 text-center">
           {/* Üst Yarım */}
           <img
-            src="/src/assets/images/yarim_yarim-02.png"
+            src="/images/yarim_yarim-02.png"
             alt="Üst Motif"
-            className="w-full max-w-2xl mx-auto"
+            className="w-full max-w-6xl mx-auto"
           />
 
           {/* Başlık ve Açıklama */}
@@ -33,9 +31,9 @@ export function HeroSection() {
 
           {/* Alt Yarım */}
           <img
-            src="/src/assets/images/yarim_yarim-01.png"
+            src="/images/yarim_yarim-01.png"
             alt="Alt Motif"
-            className="w-full max-w-2xl mx-auto"
+            className="w-full max-w-6xl mx-auto"
           />
         </div>
       </div>

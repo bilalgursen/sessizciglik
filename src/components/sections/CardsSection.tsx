@@ -3,8 +3,8 @@ import motifData from "@/data/motifs.json";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoMdClose } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
 import { balloons } from "balloons-js";
+import { TbCards } from "react-icons/tb";
 
 export function CardsSection() {
   const [viewedCards, setViewedCards] = useState<string[]>([]);
@@ -85,10 +85,11 @@ export function CardsSection() {
 
       {/* Kontrol Paneli */}
       {showPanel && (
-        <div className="fixed bottom-8 left-8 flex items-center gap-4">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
           {/* Görüntülenen Kartlar */}
           <div className="bg-background/80 backdrop-blur-sm p-3 rounded-lg shadow-lg border border-border flex items-center gap-3">
-            <p className="text-sm font-medium">
+            <p className="text-sm font-medium gap-1 flex items-center">
+              <TbCards className="text-lg" />
               {viewedCards.length}/{motifData.motifs.length}
             </p>
             {isCompleted && (
@@ -101,12 +102,7 @@ export function CardsSection() {
 
           {/* Kartları Kapat Butonu */}
           {anyCardFlipped && (
-            <Button
-              onClick={closeAllCards}
-              variant="outline"
-              size="sm"
-              className="gap-2"
-            >
+            <Button onClick={closeAllCards} variant="outline" className="gap-2">
               <IoMdClose className="text-lg" />
               Kartları Kapat
             </Button>
