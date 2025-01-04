@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import { FaRegDotCircle, FaDotCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { PiDiamondsFour, PiDiamondsFourFill } from "react-icons/pi";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const menuItems = [
-  { id: "hero", label: "Ana Sayfa" },
+  { id: "hero", label: "Giriş" },
   { id: "cards", label: "Motifler" },
   //   { id: "faq", label: "S.S.S" },
 ];
@@ -25,7 +27,7 @@ export function SideNav() {
               }
             });
           },
-          { threshold: 0.5 }
+          { threshold: 0.1 }
         );
 
         observer.observe(element);
@@ -45,32 +47,35 @@ export function SideNav() {
 
   return (
     <nav className="fixed top-8 right-8 z-50">
-      <ul className="flex items-center gap-4">
-        {menuItems.map((item) => {
-          const isActive = activeSection === item.id;
-          const Icon = isActive ? FaDotCircle : FaRegDotCircle;
+      <div className="flex flex-col items-end gap-4">
+        {/* <ModeToggle /> */}
+        <ul className="flex items-center gap-4">
+          {menuItems.map((item) => {
+            const isActive = activeSection === item.id;
+            const Icon = isActive ? PiDiamondsFourFill : PiDiamondsFour;
 
-          return (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-full",
-                  "bg-background/80 backdrop-blur-sm",
-                  "border border-border",
-                  "transition-all duration-200 hover:scale-105",
-                  "shadow-lg hover:shadow-xl",
-                  isActive && "border-primary"
-                )}
-                title={item.label}
-              >
-                <Icon className="text-xl" />
-                <span className="text-sm font-medium">{item.label}</span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+            return (
+              <li key={item.id}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2",
+                    "bg-background/80 backdrop-blur-sm",
+                    "border border-border",
+                    "transition-all duration-200 hover:scale-105",
+                    "shadow-lg hover:shadow-xl",
+                    isActive && "border-primary"
+                  )}
+                  title={item.label}
+                >
+                  <Icon className="text-xl" />
+                  <span className="text-sm font-medium">{item.label}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }

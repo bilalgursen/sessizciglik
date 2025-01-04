@@ -1,11 +1,20 @@
+import { balloons } from "balloons-js";
 import { FaGithub } from "react-icons/fa";
 
 export function Footer() {
   return (
     <footer className="py-6">
-      <div className="container flex items-center justify-center gap-4 px-4 md:px-6">
+      <div className="container cursor-default flex items-center justify-center gap-4 px-4 md:px-6">
         <p className="text-sm text-muted-foreground">
-          Bilal Gürşen tarafından sevgi ile ❤️ Serap Paçacı için yazılmıştır
+          Bilal Gürşen tarafından{" "}
+          <span
+            onClick={() => {
+              balloons();
+            }}
+          >
+            ❤️
+          </span>{" "}
+          ile Serap Paçacı için yazılmıştır
         </p>
         <span className="text-muted-foreground">|</span>
         <a

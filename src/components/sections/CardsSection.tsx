@@ -1,6 +1,6 @@
 import { FlipCard } from "@/components/ui/FlipCard";
 import motifData from "@/data/motifs.json";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { IoMdClose } from "react-icons/io";
 import { balloons } from "balloons-js";
@@ -12,6 +12,8 @@ export function CardsSection() {
   const [forceCloseCards, setForceCloseCards] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
   const [hasShownBalloons, setHasShownBalloons] = useState(false);
+  const hasPlayedIntro = useRef(false);
+  const [autoOpenCardId, setAutoOpenCardId] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,6 +43,25 @@ export function CardsSection() {
     }
   }, [viewedCards, hasShownBalloons]);
 
+  // İlk 3 karttan rastgele birini aç-kapa efekti
+  useEffect(() => {
+    if (showPanel && !hasPlayedIntro.current) {
+      hasPlayedIntro.current = true;
+      const randomIndex = Math.floor(2);
+      const selectedMotif = motifData.motifs[randomIndex];
+
+      setTimeout(() => {
+        // Kartı aç
+        setAutoOpenCardId(selectedMotif.id);
+        // 2 saniye sonra kapat
+        setTimeout(() => {
+          setAutoOpenCardId(null);
+          closeAllCards();
+        }, 4000);
+      }, 2000);
+    }
+  }, [showPanel]);
+
   const handleCardFlip = (id: string, isFlipped: boolean) => {
     if (isFlipped && !viewedCards.includes(id)) {
       setViewedCards((prev) => [...prev, id]);
@@ -69,7 +90,10 @@ export function CardsSection() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
           {motifData.motifs.map((motif) => (
-            <div key={motif.id} className="w-full flex justify-center">
+            <div
+              key={motif.id}
+              className="w-full aspect-square flex justify-center"
+            >
               <FlipCard
                 title={motif.title}
                 description={motif.description}
@@ -77,6 +101,7 @@ export function CardsSection() {
                 video={motif.video}
                 onFlip={(isFlipped) => handleCardFlip(motif.id, isFlipped)}
                 forceClose={forceCloseCards}
+                forceOpen={autoOpenCardId === motif.id}
               />
             </div>
           ))}
@@ -85,11 +110,12 @@ export function CardsSection() {
 
       {/* Kontrol Paneli */}
       {showPanel && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
           {/* Görüntülenen Kartlar */}
-          <div className="bg-background/80 backdrop-blur-sm p-3 rounded-lg shadow-lg border border-border flex items-center gap-3">
+          <div className="bg-background/80 backdrop-blur-sm p-3  shadow-lg border border-border flex items-center gap-3">
             <p className="text-sm font-medium gap-1 flex items-center">
               <TbCards className="text-lg" />
+              <span className="text-sm font-medium">Kartlar</span>
               {viewedCards.length}/{motifData.motifs.length}
             </p>
             {isCompleted && (
@@ -102,9 +128,17 @@ export function CardsSection() {
 
           {/* Kartları Kapat Butonu */}
           {anyCardFlipped && (
-            <Button onClick={closeAllCards} variant="outline" className="gap-2">
-              <IoMdClose className="text-lg" />
-              Kartları Kapat
+            <Button
+              onClick={closeAllCards}
+              variant="outline"
+              className="bg-background/80 h-full backdrop-blur-sm p-3  shadow-lg border border-border flex items-center gap-3 rounded-none"
+            >
+              <IoMdClose className="text-2xl" />
+              {Array.from(document.querySelectorAll(".card__content")).filter(
+                (card) => card.classList.contains("rotate-y-180")
+              ).length > 1
+                ? "Kartları Kapat"
+                : "Kartı Kapat"}
             </Button>
           )}
         </div>

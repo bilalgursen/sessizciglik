@@ -8,6 +8,7 @@ interface FlipCardProps {
   video: string;
   onFlip?: (isFlipped: boolean) => void;
   forceClose?: boolean;
+  forceOpen?: boolean;
 }
 
 export function FlipCard({
@@ -17,6 +18,7 @@ export function FlipCard({
   video,
   onFlip,
   forceClose,
+  forceOpen,
 }: FlipCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -29,6 +31,14 @@ export function FlipCard({
     }
   }, [forceClose]);
 
+  // Dışarıdan açma kontrolü
+  useEffect(() => {
+    if (forceOpen && !isFlipped) {
+      setIsFlipped(true);
+      onFlip?.(true);
+    }
+  }, [forceOpen]);
+
   const handleClick = () => {
     const newFlipped = !isFlipped;
     setIsFlipped(newFlipped);
@@ -37,7 +47,7 @@ export function FlipCard({
 
   return (
     <div
-      className="card w-72 h-96 cursor-pointer perspective-800"
+      className="card w-80 h-80 cursor-pointer perspective-800"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
@@ -74,11 +84,11 @@ export function FlipCard({
           className={cn(
             "card__back absolute inset-0 p-6 bg-primary text-primary-foreground rounded-lg",
             "backface-hidden rotate-y-180",
-            "flex flex-col items-center justify-center text-center"
+            "flex flex-col justify-center text-center"
           )}
         >
-          <h3 className="text-2xl font-bold mb-4">{title}</h3>
-          <p className="text-sm">{description}</p>
+          <h3 className="text-6xl text-left font-bold mb-4">{title}</h3>
+          <p className="text-sm text-left">{description}</p>
         </div>
       </div>
     </div>
