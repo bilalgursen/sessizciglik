@@ -1,0 +1,46 @@
+{
+  "motifs": [
+    {
+      "id": "akrep",
+      "title": "Akrep",
+      "description": "Akrep motifi, güç ve koruma sembolüdür.",
+      "image": "/src/assets/images/akrep.png",
+      "video": "/src/assets/movies/Akrep.mp4"
+    },
+    {
+      "id": "bereket",
+      "title": "Bereket",
+      "description": "Bereket motifi, bolluk ve zenginliği temsil eder.",
+      "image": "/src/assets/images/bereket.png",
+      "video": "/src/assets/movies/Bereket_Hareketli.mp4"
+    },
+    {
+      "id": "bukagi",
+      "title": "Bukağı",
+      "description": "Bukağı motifi, aileye bağlılığı simgeler.",
+      "image": "/src/assets/images/bukagi.png",
+      "video": "/src/assets/movies/bukagi_hareketli.mp4"
+    },
+    {
+      "id": "cengel",
+      "title": "Çengel",
+      "description": "Çengel motifi, kötü gözden korunmayı temsil eder.",
+      "image": "/src/assets/images/cengel.png",
+      "video": "/src/assets/movies/cengel_hareketli.mp4"
+    },
+    {
+      "id": "elibelinde",
+      "title": "Elibelinde",
+      "description": "Elibelinde motifi, anneliği ve doğurganlığı temsil eder.",
+      "image": "/src/assets/images/elibelinde.png",
+      "video": "/src/assets/movies/elibelinde_hareketli.mp4"
+    },
+    {
+      "id": "goz",
+      "title": "Göz",
+      "description": "Göz motifi, nazardan korunmayı simgeler.",
+      "image": "/src/assets/images/goz.png",
+      "video": "/src/assets/movies/goz_hareketli.mp4"
+    }
+  ]
+}
