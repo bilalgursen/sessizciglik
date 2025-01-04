@@ -131,7 +131,7 @@ export function CardsSection() {
             <Button
               onClick={closeAllCards}
               variant="outline"
-              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center gap-3 rounded-none md:w-full"
+              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center rounded-none md:w-full"
             >
               <IoMdClose className="text-lg" />
               <span className="md:flex hidden">

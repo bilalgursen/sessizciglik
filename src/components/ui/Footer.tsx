@@ -6,7 +6,6 @@ export function Footer() {
     <footer className="py-6">
       <div className="container cursor-default flex items-center justify-center gap-4 px-4 md:px-6">
         <p className="text-sm text-muted-foreground">
-          Bilal Gürşen tarafından{" "}
           <span
             onClick={() => {
               balloons();
@@ -14,7 +13,7 @@ export function Footer() {
           >
             ❤️
           </span>{" "}
-          ile Serap Paçacı için yazılmıştır
+          ile yapılmıştır
         </p>
         <span className="text-muted-foreground">|</span>
         <a
