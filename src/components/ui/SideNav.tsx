@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
-import { FaRegDotCircle, FaDotCircle } from "react-icons/fa";
+// import { FaRegDotCircle, FaDotCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { PiDiamondsFour, PiDiamondsFourFill } from "react-icons/pi";
-import { ModeToggle } from "@/components/mode-toggle";
+// import { ModeToggle } from "@/components/mode-toggle";
 
 const menuItems = [
   { id: "hero", label: "Giriş" },
