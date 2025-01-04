@@ -1,6 +1,6 @@
 import { FlipCard } from "@/components/ui/FlipCard";
 import motifData from "@/data/motifs.json";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { IoMdClose } from "react-icons/io";
 import { balloons } from "balloons-js";
@@ -10,13 +10,10 @@ import { GiClick } from "react-icons/gi";
 
 export function CardsSection() {
   const [viewedCards, setViewedCards] = useState<string[]>([]);
-  const [anyCardFlipped, setAnyCardFlipped] = useState(false);
   const [openCardsCount, setOpenCardsCount] = useState(0);
   const [forceCloseCards, setForceCloseCards] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
   const [hasShownBalloons, setHasShownBalloons] = useState(false);
-  const hasPlayedIntro = useRef(false);
-  const [autoOpenCardId, setAutoOpenCardId] = useState<string | null>(null);
   const [showInitialMessage, setShowInitialMessage] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isInSection, setIsInSection] = useState(false);
@@ -27,7 +24,9 @@ export function CardsSection() {
         setIsInSection(entry.isIntersecting);
         if (entry.isIntersecting) {
           setShowPanel(true);
-          setShowInitialMessage(true);
+          if (viewedCards.length === 0) {
+            setShowInitialMessage(true);
+          }
         } else {
           setShowInitialMessage(false);
         }
@@ -41,7 +40,7 @@ export function CardsSection() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [viewedCards.length]);
 
   // Tüm kartlar görüntülendiğinde balon efektini göster
   useEffect(() => {
@@ -78,7 +77,6 @@ export function CardsSection() {
         card.classList.contains("rotate-y-180")
       );
       setOpenCardsCount(flippedCards.length);
-      setAnyCardFlipped(flippedCards.length > 0);
     }, 100);
   };
 
@@ -108,7 +106,6 @@ export function CardsSection() {
                 video={motif.video}
                 onFlip={(isFlipped) => handleCardFlip(motif.id, isFlipped)}
                 forceClose={forceCloseCards}
-                forceOpen={autoOpenCardId === motif.id}
                 isViewed={viewedCards.includes(motif.id)}
               />
             </div>
@@ -121,31 +118,32 @@ export function CardsSection() {
         <div className="fixed h-min justify-center md:top-6 md:left-8 md:translate-x-0 bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
           {/* Görüntülenen Kartlar */}
           <div className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border w-full flex items-center gap-3">
-            <p className="text-sm font-medium gap-1 flex items-center">
-              <span className="text-sm font-medium">
-                {isInSection && showInitialMessage ? (
-                  <span className="flex items-center gap-2">
-                    Motiflere dokun
-                    {isMobile ? (
-                      <GiClick className="text-lg" />
-                    ) : (
-                      <HiCursorClick className="text-lg" />
-                    )}
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-1">
-                    <TbCards className="text-lg self-start" />
-                    {motifData.motifs.length - viewedCards.length} motif
-                    keşfedilmeyi bekliyor
-                  </span>
-                )}
-              </span>
-            </p>
-            {isCompleted && !showInitialMessage && (
+            {isInSection && showInitialMessage ? (
+              <p className="text-sm font-medium gap-1 flex items-center">
+                <span className="flex items-center gap-2">
+                  Motiflere dokun
+                  {isMobile ? (
+                    <GiClick className="text-lg" />
+                  ) : (
+                    <HiCursorClick className="text-lg" />
+                  )}
+                </span>
+              </p>
+            ) : isCompleted ? (
               <div className="flex items-center gap-1">
                 🎈
-                <span className="text-xs">Tüm Motifleri Görüntülediniz</span>
+                <span className="text-sm font-medium">
+                  Tüm Motifleri Görüntülediniz
+                </span>
               </div>
+            ) : (
+              <p className="text-sm font-medium gap-1 flex items-center">
+                <TbCards className="text-lg self-start" />
+                <span>
+                  {motifData.motifs.length - viewedCards.length} motif
+                  keşfedilmeyi bekliyor
+                </span>
+              </p>
             )}
           </div>
 

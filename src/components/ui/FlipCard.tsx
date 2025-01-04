@@ -32,7 +32,7 @@ export function FlipCard({
     if (isViewed && !showCheckmark) {
       const timer = setTimeout(() => {
         setShowCheckmark(true);
-      }, 2000);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [isViewed]);
