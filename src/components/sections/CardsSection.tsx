@@ -5,22 +5,31 @@ import { Button } from "@/components/ui/button";
 import { IoMdClose } from "react-icons/io";
 import { balloons } from "balloons-js";
 import { TbCards } from "react-icons/tb";
+import { HiCursorClick } from "react-icons/hi";
+import { GiClick } from "react-icons/gi";
 
 export function CardsSection() {
   const [viewedCards, setViewedCards] = useState<string[]>([]);
   const [anyCardFlipped, setAnyCardFlipped] = useState(false);
+  const [openCardsCount, setOpenCardsCount] = useState(0);
   const [forceCloseCards, setForceCloseCards] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
   const [hasShownBalloons, setHasShownBalloons] = useState(false);
   const hasPlayedIntro = useRef(false);
   const [autoOpenCardId, setAutoOpenCardId] = useState<string | null>(null);
+  const [showInitialMessage, setShowInitialMessage] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isInSection, setIsInSection] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        setIsInSection(entry.isIntersecting);
         if (entry.isIntersecting) {
           setShowPanel(true);
-          observer.disconnect();
+          setShowInitialMessage(true);
+        } else {
+          setShowInitialMessage(false);
         }
       },
       { threshold: 0.1 }
@@ -43,35 +52,33 @@ export function CardsSection() {
     }
   }, [viewedCards, hasShownBalloons]);
 
-  // İlk 3 karttan rastgele birini aç-kapa efekti
+  // Mobil cihaz kontrolü
   useEffect(() => {
-    if (showPanel && !hasPlayedIntro.current) {
-      hasPlayedIntro.current = true;
-      const randomIndex = Math.floor(2);
-      const selectedMotif = motifData.motifs[randomIndex];
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-      setTimeout(() => {
-        // Kartı aç
-        setAutoOpenCardId(selectedMotif.id);
-        // 2 saniye sonra kapat
-        setTimeout(() => {
-          setAutoOpenCardId(null);
-          closeAllCards();
-        }, 4000);
-      }, 2000);
-    }
-  }, [showPanel]);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleCardFlip = (id: string, isFlipped: boolean) => {
-    if (isFlipped && !viewedCards.includes(id)) {
-      setViewedCards((prev) => [...prev, id]);
+    if (isFlipped) {
+      setShowInitialMessage(false);
+      if (!viewedCards.includes(id)) {
+        setViewedCards((prev) => [...prev, id]);
+      }
     }
+
     setTimeout(() => {
       const cards = document.querySelectorAll(".card__content");
-      const hasFlippedCard = Array.from(cards).some((card) =>
+      const flippedCards = Array.from(cards).filter((card) =>
         card.classList.contains("rotate-y-180")
       );
-      setAnyCardFlipped(hasFlippedCard);
+      setOpenCardsCount(flippedCards.length);
+      setAnyCardFlipped(flippedCards.length > 0);
     }, 100);
   };
 
@@ -102,6 +109,7 @@ export function CardsSection() {
                 onFlip={(isFlipped) => handleCardFlip(motif.id, isFlipped)}
                 forceClose={forceCloseCards}
                 forceOpen={autoOpenCardId === motif.id}
+                isViewed={viewedCards.includes(motif.id)}
               />
             </div>
           ))}
@@ -110,37 +118,46 @@ export function CardsSection() {
 
       {/* Kontrol Paneli */}
       {showPanel && (
-        <div className="fixed h-min justify-center md:top-6 md:left-8 md:translate-x-0  bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
+        <div className="fixed h-min justify-center md:top-6 md:left-8 md:translate-x-0 bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
           {/* Görüntülenen Kartlar */}
           <div className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border w-full flex items-center gap-3">
             <p className="text-sm font-medium gap-1 flex items-center">
-              <TbCards className="text-lg" />
-              <span className="text-sm font-medium">Motifler</span>
-              {viewedCards.length}/{motifData.motifs.length}
+              <span className="text-sm font-medium">
+                {isInSection && showInitialMessage ? (
+                  <span className="flex items-center gap-2">
+                    Motiflere dokun
+                    {isMobile ? (
+                      <GiClick className="text-lg" />
+                    ) : (
+                      <HiCursorClick className="text-lg" />
+                    )}
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1">
+                    <TbCards className="text-lg self-start" />
+                    {motifData.motifs.length - viewedCards.length} motif
+                    keşfedilmeyi bekliyor
+                  </span>
+                )}
+              </span>
             </p>
-            {isCompleted && (
+            {isCompleted && !showInitialMessage && (
               <div className="flex items-center gap-1">
                 🎈
-                <span className="text-xs">Tüm Kartları Görüntülediniz</span>
+                <span className="text-xs">Tüm Motifleri Görüntülediniz</span>
               </div>
             )}
           </div>
 
           {/* Kartları Kapat Butonu */}
-          {anyCardFlipped && (
+          {!showInitialMessage && openCardsCount >= 3 && (
             <Button
               onClick={closeAllCards}
               variant="outline"
-              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center rounded-none md:w-full"
+              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center rounded-none"
             >
               <IoMdClose className="text-lg" />
-              <span className="md:flex hidden">
-                {Array.from(document.querySelectorAll(".card__content")).filter(
-                  (card) => card.classList.contains("rotate-y-180")
-                ).length > 1
-                  ? "Kartları Kapat"
-                  : "Kartı Kapat"}
-              </span>
+              <span className="md:flex hidden">Kartları Kapat</span>
             </Button>
           )}
         </div>
