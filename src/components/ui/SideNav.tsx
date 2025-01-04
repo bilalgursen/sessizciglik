@@ -48,7 +48,6 @@ export function SideNav() {
   return (
     <nav className="fixed top-8 right-8 z-50">
       <div className="flex flex-col items-end gap-4">
-        {/* <ModeToggle /> */}
         <ul className="flex items-center gap-4">
           {menuItems.map((item) => {
             const isActive = activeSection === item.id;
