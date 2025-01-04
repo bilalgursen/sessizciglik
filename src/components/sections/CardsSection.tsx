@@ -110,12 +110,12 @@ export function CardsSection() {
 
       {/* Kontrol Paneli */}
       {showPanel && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
+        <div className="fixed h-min justify-center md:top-6 md:left-8 md:translate-x-0  bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
           {/* Görüntülenen Kartlar */}
-          <div className="bg-background/80 backdrop-blur-sm p-3  shadow-lg border border-border flex items-center gap-3">
+          <div className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border w-full flex items-center gap-3">
             <p className="text-sm font-medium gap-1 flex items-center">
               <TbCards className="text-lg" />
-              <span className="text-sm font-medium">Kartlar</span>
+              <span className="text-sm font-medium">Motifler</span>
               {viewedCards.length}/{motifData.motifs.length}
             </p>
             {isCompleted && (
@@ -131,14 +131,16 @@ export function CardsSection() {
             <Button
               onClick={closeAllCards}
               variant="outline"
-              className="bg-background/80 h-full backdrop-blur-sm p-3  shadow-lg border border-border flex items-center gap-3 rounded-none"
+              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center gap-3 rounded-none md:w-full"
             >
-              <IoMdClose className="text-2xl" />
-              {Array.from(document.querySelectorAll(".card__content")).filter(
-                (card) => card.classList.contains("rotate-y-180")
-              ).length > 1
-                ? "Kartları Kapat"
-                : "Kartı Kapat"}
+              <IoMdClose className="text-lg" />
+              <span className="md:flex hidden">
+                {Array.from(document.querySelectorAll(".card__content")).filter(
+                  (card) => card.classList.contains("rotate-y-180")
+                ).length > 1
+                  ? "Kartları Kapat"
+                  : "Kartı Kapat"}
+              </span>
             </Button>
           )}
         </div>
