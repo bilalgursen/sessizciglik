@@ -12,6 +12,7 @@ export function ArtistSection() {
               <img
                 src="/images/artist/serap_pacaci.jpg"
                 alt="Serap Paçacı"
+                loading="lazy"
                 className="aspect-[3/4] grayscale  inset-0 hover:grayscale-0 transition-all duration-500  w-3/4 rounded-lg object-cover"
               />
             </div>

@@ -7,6 +7,7 @@ export function HeroSection() {
           <img
             src="/images/yarim_yarim-02.jpg"
             alt="Üst Motif"
+            loading="lazy"
             className="w-full max-w-3xl mx-auto md:min-h-[300px]"
           />
 
@@ -33,6 +34,7 @@ export function HeroSection() {
           <img
             src="/images/yarim_yarim-01.jpg"
             alt="Alt Motif"
+            loading="lazy"
             className="w-full max-w-3xl mx-auto md:min-h-[300px]"
           />
         </div>

@@ -10,6 +10,7 @@ export function AboutSection() {
             <img
               src="/images/akrep_yarim.jpg"
               alt="Akrep Motifi"
+              loading="lazy"
               className="w-full h-full object-contain"
             />
           </div>
@@ -23,6 +24,7 @@ export function AboutSection() {
             <img
               src="/images/akrep_yarim.jpg"
               alt="Akrep Motifi"
+              loading="lazy"
               className="w-full h-full object-contain rotate-180"
             />
           </div>

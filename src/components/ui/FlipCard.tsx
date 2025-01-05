@@ -100,6 +100,7 @@ export function FlipCard({
             <img
               src={image}
               alt={title}
+              loading="lazy"
               className={cn(
                 "w-full h-full object-cover rounded-lg absolute inset-0",
                 isHovered ? "invisible" : "visible"
