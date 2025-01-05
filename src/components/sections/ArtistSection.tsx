@@ -5,10 +5,10 @@ export function ArtistSection() {
         <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">
           Sanatçı
         </h2>
-        <div className="grid grid-cols-1 px-20 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 md:px-20 gap-8 lg:grid-cols-2">
           {/* Sabit Resim */}
           <div className="relative lg:order-last">
-            <div className="sticky top-6 flex justify-end ">
+            <div className="sticky top-6 flex justify-center md:justify-end px-10 md:px-0">
               <img
                 src="/images/artist/serap_pacaci.jpg"
                 alt="Serap Paçacı"
