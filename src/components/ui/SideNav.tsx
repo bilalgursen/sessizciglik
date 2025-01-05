@@ -77,7 +77,7 @@ export function SideNav() {
         </button>
 
         {/* Menü Öğeleri */}
-        <ul className="flex flex-col md:flex-row items-end md:items-center mt-14 gap-4 p-5 md:p-0">
+        <ul className="flex flex-col md:flex-row items-end md:items-center mt-14 md:mt-0 gap-4 p-5 md:p-0">
           {menuItems.map((item) => {
             const isActive = activeSection === item.id;
             const Icon = isActive ? PiDiamondsFourFill : PiDiamondsFour;
