@@ -8,7 +8,7 @@ export function AboutSection() {
         {[...Array(3)].map((_, index) => (
           <div key={index} className="w-40 md:w-80 h-40 md:h-80 mb-4">
             <img
-              src="/images/akrep_yarim.png"
+              src="/images/akrep_yarim.jpg"
               alt="Akrep Motifi"
               className="w-full h-full object-contain"
             />
@@ -21,7 +21,7 @@ export function AboutSection() {
         {[...Array(3)].map((_, index) => (
           <div key={index} className="w-40 md:w-80 h-40 md:h-80 mb-4">
             <img
-              src="/images/akrep_yarim.png"
+              src="/images/akrep_yarim.jpg"
               alt="Akrep Motifi"
               className="w-full h-full object-contain rotate-180"
             />

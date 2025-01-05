@@ -5,7 +5,7 @@ export function HeroSection() {
         <div className="flex flex-col items-center space-y-8 text-center">
           {/* Üst Yarım */}
           <img
-            src="/images/yarim_yarim-02.png"
+            src="/images/yarim_yarim-02.jpg"
             alt="Üst Motif"
             className="w-full max-w-3xl mx-auto"
           />
@@ -31,7 +31,7 @@ export function HeroSection() {
 
           {/* Alt Yarım */}
           <img
-            src="/images/yarim_yarim-01.png"
+            src="/images/yarim_yarim-01.jpg"
             alt="Alt Motif"
             className="w-full max-w-3xl mx-auto"
           />

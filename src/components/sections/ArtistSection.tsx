@@ -10,7 +10,7 @@ export function ArtistSection() {
           <div className="relative lg:order-last">
             <div className="sticky top-6 flex justify-end ">
               <img
-                src="/images/artist/serap_pacaci.png"
+                src="/images/artist/serap_pacaci.jpg"
                 alt="Serap Paçacı"
                 className="aspect-[3/4] grayscale  inset-0 hover:grayscale-0 transition-all duration-500  w-3/4 rounded-lg object-cover"
               />
