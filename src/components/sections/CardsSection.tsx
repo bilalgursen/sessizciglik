@@ -115,9 +115,9 @@ export function CardsSection() {
 
       {/* Kontrol Paneli */}
       {showPanel && (
-        <div className="fixed h-min justify-center md:top-6 md:left-8 md:translate-x-0 bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
+        <div className="z-10 fixed h-min justify-center md:top-8 md:left-8 md:translate-x-0 bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1">
           {/* Görüntülenen Kartlar */}
-          <div className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border w-full flex items-center gap-3">
+          <div className="bg-background/80 backdrop-blur-sm px-4 shadow-lg border py-2 border-border w-full flex items-center gap-3 rounded-sm">
             {isInSection && showInitialMessage ? (
               <p className="text-sm font-medium gap-1 flex items-center">
                 <span className="flex items-center gap-2">
@@ -152,9 +152,9 @@ export function CardsSection() {
             <Button
               onClick={closeAllCards}
               variant="outline"
-              className="bg-background/80 h-12 backdrop-blur-sm p-3 shadow-lg border border-border flex items-center rounded-none"
+              className="flex items-center hover:bg-background/80 gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm border border-border transition-all duration-200 rounded-sm shadow-lg hover:shadow-xl"
             >
-              <IoMdClose className="text-lg" />
+              <IoMdClose />
               <span className="md:flex hidden">Kartları Kapat</span>
             </Button>
           )}

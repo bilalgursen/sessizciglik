@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <section id="hero" className="relative pb-20 pt-5 ">
+    <section id="hero" className="relative pb-20 pt-14 ">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-8 text-center">
           {/* Üst Yarım */}
