@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { LuBookCheck } from "react-icons/lu";
 
@@ -26,6 +26,15 @@ export function FlipCard({
   const [isHovered, setIsHovered] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
   const [showCheckmark, setShowCheckmark] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Video reset effect
+  useEffect(() => {
+    if (isHovered && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  }, [isHovered]);
 
   // İkon gösterme kontrolü
   useEffect(() => {
@@ -76,28 +85,32 @@ export function FlipCard({
         >
           {/* Ön Yüz */}
           <div className="card__front absolute inset-0 backface-hidden">
-            {isHovered ? (
-              <video
-                className="w-full h-full object-cover rounded-lg"
-                autoPlay
-                loop
-                muted
-              >
-                <source src={video} type="video/mp4" />
-              </video>
-            ) : (
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            )}
+            <video
+              ref={videoRef}
+              className={cn(
+                "w-full h-full object-cover rounded-lg absolute inset-0",
+                isHovered ? "visible" : "invisible"
+              )}
+              autoPlay
+              loop
+              muted
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+            <img
+              src={image}
+              alt={title}
+              className={cn(
+                "w-full h-full object-cover rounded-lg absolute inset-0",
+                isHovered ? "invisible" : "visible"
+              )}
+            />
           </div>
 
           {/* Arka Yüz */}
           <div
             className={cn(
-              "card__back absolute inset-0 p-6 bg-primary text-primary-foreground rounded-lg",
+              "card__back absolute inset-0 p-12 bg-primary text-primary-foreground rounded-lg",
               "backface-hidden rotate-y-180",
               "flex flex-col justify-between"
             )}

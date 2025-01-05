@@ -7,8 +7,8 @@ import { IoClose } from "react-icons/io5";
 const menuItems = [
   { id: "hero", label: "Giriş" },
   { id: "cards", label: "Motifler" },
-  { id: "artist", label: "Sanatçı" },
   { id: "about", label: "Hakkında" },
+  { id: "artist", label: "Sanatçı" },
 ];
 
 export function SideNav() {

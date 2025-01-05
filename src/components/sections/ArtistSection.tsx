@@ -5,14 +5,14 @@ export function ArtistSection() {
         <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">
           Sanatçı
         </h2>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 px-20 gap-8 lg:grid-cols-2">
           {/* Sabit Resim */}
           <div className="relative lg:order-last">
-            <div className="sticky top-6 flex justify-center">
+            <div className="sticky top-6 flex justify-end ">
               <img
                 src="/images/artist/serap_pacaci.png"
                 alt="Serap Paçacı"
-                className="aspect-[3/4] w-3/4 rounded-lg object-cover"
+                className="aspect-[3/4] grayscale  inset-0 hover:grayscale-0 transition-all duration-500  w-3/4 rounded-lg object-cover"
               />
             </div>
           </div>

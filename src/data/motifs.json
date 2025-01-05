@@ -18,8 +18,8 @@
       "id": "sacbagi",
       "title": "Saç Bağı",
       "description": "Saç bağı motifi, kadınların güzelliğini ve zarafetini temsil eder. Genç kızların evlilik hazırlığını ve güzelliğe verdiği önemi simgeler.",
-      "image": "/images/sac-bagi.png",
-      "video": "/movies/sacbagi_hareketli.mp4"
+      "image": "/images/sac_bagi.png",
+      "video": "/movies/sac_bagi_hareketli.mp4"
     },
     {
       "id": "akrep",
@@ -102,7 +102,7 @@
       "id": "hayatagaci",
       "title": "Hayat Ağacı",
       "description": "Yaşamın gelişimini, sürekliliğini ve evrenin birliğini simgeler. Kökleri geçmişi ve ataları, bugünün gövdesi, dalları ise geleceği ve yaşamın yenilenmesini temsil eder. Anadolu kadınları için bereket, umut ve koruyuculuk anlamı taşır.",
-      "image": "/images/hayat-agaci.png",
+      "image": "/images/hayat_agaci.png",
       "video": "/movies/hayat_agaci_hareketli.mp4"
     }
   ]
