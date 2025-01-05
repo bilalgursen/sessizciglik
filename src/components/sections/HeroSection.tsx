@@ -7,7 +7,7 @@ export function HeroSection() {
           <img
             src="/images/yarim_yarim-02.jpg"
             alt="Üst Motif"
-            className="w-full max-w-3xl mx-auto"
+            className="w-full max-w-3xl mx-auto md:min-h-[300px]"
           />
 
           {/* Başlık ve Açıklama */}
@@ -33,7 +33,7 @@ export function HeroSection() {
           <img
             src="/images/yarim_yarim-01.jpg"
             alt="Alt Motif"
-            className="w-full max-w-3xl mx-auto"
+            className="w-full max-w-3xl mx-auto md:min-h-[300px]"
           />
         </div>
       </div>
