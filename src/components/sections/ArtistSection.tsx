@@ -7,13 +7,13 @@ export function ArtistSection() {
         </h2>
         <div className="grid grid-cols-1 md:px-20 gap-8 lg:grid-cols-2">
           {/* Sabit Resim */}
-          <div className="relative lg:order-last">
+          <div className="relative ">
             <div className="sticky top-6 flex justify-center md:justify-end px-10 md:px-0">
               <img
                 src="/images/artist/serap_pacaci.jpg"
                 alt="Serap Paçacı"
                 loading="lazy"
-                className="aspect-[3/4] grayscale  inset-0 hover:grayscale-0 transition-all duration-500  w-3/4 rounded-lg object-cover"
+                className="aspect-[3/4] grayscale inset-0 [mask-image:linear-gradient(to_bottom,white,white,white,white,transparent)] hover:grayscale-0 transition-all duration-500 w-3/4 rounded-lg object-cover scale-x-[-1]"
               />
             </div>
           </div>
