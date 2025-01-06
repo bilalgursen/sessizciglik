@@ -8,7 +8,7 @@ export function HeroSection() {
             src="/images/yarim_yarim-02.jpg"
             alt="Üst Motif"
             loading="lazy"
-            className="w-full max-w-3xl mx-auto md:min-h-[300px]"
+            className="w-full max-w-3xl mx-auto md:min-h-[300px] [mask-image:linear-gradient(to_bottom,white,white,white,transparent)]"
           />
 
           {/* Başlık ve Açıklama */}
@@ -35,7 +35,7 @@ export function HeroSection() {
             src="/images/yarim_yarim-01.jpg"
             alt="Alt Motif"
             loading="lazy"
-            className="w-full max-w-3xl mx-auto md:min-h-[300px]"
+            className="w-full max-w-3xl mx-auto md:min-h-[300px] [mask-image:linear-gradient(to_top,white,white,white,transparent)]"
           />
         </div>
       </div>

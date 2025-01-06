@@ -8,7 +8,7 @@ export function ArtistSection() {
         <div className="grid grid-cols-1 md:px-20 gap-8 lg:grid-cols-2">
           {/* Sabit Resim */}
           <div className="relative ">
-            <div className="sticky top-6 flex justify-center md:justify-end px-10 md:px-0">
+            <div className="sticky top-6 flex justify-center md:justify-start px-10 md:px-0">
               <img
                 src="/images/artist/serap_pacaci.jpg"
                 alt="Serap Paçacı"
