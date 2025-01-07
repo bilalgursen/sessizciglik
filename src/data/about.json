@@ -1,29 +1,43 @@
 {
   "sections": [
     {
-      "id": "purpose",
-      "title": "Projenin Amacı ve Vizyonu",
-      "description": "Sessiz Çığlık koleksiyonundaki her NFT, geleneksel Türk halı motiflerinin modern dijital sanatla harmanlanmış eşsiz bir yorumu. Her motif, kadınların duygularını, umutlarını ve hikayelerini anlatan bir anlam taşıyor. Bu hikayeler dijital dünyada yalnızca bir kes şekliyor ve her NFT yalnızca bir sahibine özel olacak şekilde tasarlandı."
+      "id": "name",
+      "title": "Neden Sessiz Çığlık?",
+      "paragraphs": [
+        "Kadınlar, kendilerini ifade edenmediği zamanlardan, kelimelere gerek duymadan halılarına işledikleri motiflerle hikayelerini anlatmışlardır. Bu desenler, onların sessiz ama bir o kadar güçlü çığlıklarıdır. Bir motifte saklı olan her desen, kadınların yaşanmışlıklarını, hayallerini ve duygularını taşır.",
+        "'Sessiz Çığlık' adı, bu anlatım dilinin büyüklüğünü ve derinliğini yansıtıyor. Her motif, görünmeyen bir duyguyu fısıldarken, aynı zamanda kadınların sessiz ama kalplere dokunan hikayelerini dünyaya duyurmayı amaçlıyor. Bu koleksiyon, kadınların zamansız seslerini modern dünyaya taşıyan bir köprü niteliğinde."
+      ]
     },
     {
-      "id": "design",
-      "title": "Tasarımın Anlamı",
-      "description": "Sessiz Çığlık NFT'leri, yalnızca sanatsal bir yatırım değil, aynı zamanda kadınların yüzyıllardır süregelen sessiz ifadelerine bir destek çağrısıdır. Koleksiyonu toplamak, hem kültürel mirası koruma hem de bu hikayelerin gelecekte taşınmasına katkıda bulunma anlamına gelir."
+      "id": "color",
+      "title": "Renk ve Tema",
+      "paragraphs": [
+        "Anadolu’daki Türk kadınları, kendilerini ifade etmek için halılara motifler işledi ve bu motiflerin her biri farklı anlamlar taşıyor. Aynı motifin bile farklı renklerle ya da tarzlarla dokunması, onun anlamını değiştirebiliyor. Bu yüzden koleksiyondaki her NFT, aynı dili taşısa da, kendine özgü bir hikaye anlatıyor."
+      ]
     },
     {
-      "id": "tech",
-      "title": "Kullanılan Teknikler ve Teknolojiler",
-      "description": "Bir Sessiz Çığlık NFT'si satın alarak, kültürel mirası koruma hareketine destek olabilirsiniz. Her NFT, kadınların tarih boyunca keşif ifadelerini yaratıcı yollarla ortaya koyma çabasını temsil eder. Ayrıca bu eşsiz eserler, hem sanatsal hem de duygusal bir bağ kurma fırsatı sunar."
+      "id": "motion",
+      "title": "Motif ve Hareket",
+      "paragraphs": [
+        "Halı motiflerinin hareket etmesi, onların hikayelerini daha etkili bir şekilde anlatmak için tercih edildi. Hareket, motiflerin ifade ettiği duyguları ve anlamları görselleştiriyor ve izleyicinin bu hikayeleri daha derinden hissetmesini sağlıyor.",
+        "Dijital sanat sayesinde bu geleneksel motiflere modern bir yorum katılmış oluyor. Hareket eden motifler, izleyiciyle bağ kurarak hikayelerin sadece birer desen değil, aynı zamanda aktif duygu taşıyıcısı olduğunu gösteriyor."
+      ]
+    },
+    {
+      "id": "vision",
+      "title": "Amaç ve Vizyon",
+      "paragraphs": [
+        "Anadolu kadınlarının kendilerini ifade etmenin en güçlü yollarından biri olan el işçiliği, onların duygularını, düşüncelerini ve yaşam hikayelerini aktardıkları özel bir dildir.",
+        "Türk halı motiflerinin taşıdığı anlamları dijital sanatla buluşturup daha fazla insana ulaştırmaktır. Bu proje, kadınların halılarla anlattıkları duyguları ve hikayeleri görünür hale getirmeyi hedefliyor.",
+        "Vizyonumuz ise bu kültürel mirası koruyarak dijital dünyada yaşatmak ve gelecek nesillere aktarmak. Bu el emeği motiflerin hikayelerini anlamak gün yüzüne çıkartmak."
+      ]
     },
     {
       "id": "team",
-      "title": "Ekip ve Katkıda Bulunanlar",
-      "description": "Halı motifleri, kadınların duygularını, düşüncelerini ve yaşam deneyimlerini kodladığı bir dil gibidir. Türk kültüründe motifler, sadece estetik değil, aynı zamanda hikayeleri taşıyan birer simgedir. Sessiz Çığlıklar, bu geleneksel dili dijital bir platformda modern bir sanat biçimiyle yeniden canlandırıyor."
-    },
-    {
-      "id": "future",
-      "title": "Gelecek Planları",
-      "description": "Her motif, farklı bir duyguyu, hikayeyi veya hayatın bir yönünü temel eder. Çünkü kadınlar, kendi yaşamlarından esinlenerek kullandıkları işledikleri motiflerle dünyalarını anlatır. Sessiz Çığlık koleksiyonunda bu çeşitlilik, her kadının hikayesini ölümsüzleştirmek ve bu hikayeleri farklı bir ışıkta sunmak amacıyla tasarlandı."
+      "title": "Teşekkürler",
+      "paragraphs": [
+        "Eserimin hayata geçmesinde sunmuş olduğun katkılardan dolayı teşekkürler, Bilal Abdullah Gürşen."
+      ]
     }
   ]
 }

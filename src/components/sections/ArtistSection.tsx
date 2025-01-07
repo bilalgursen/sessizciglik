@@ -2,9 +2,9 @@ export function ArtistSection() {
   return (
     <section id="artist" className="py-20">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">
+        {/* <h2 className="text-4xl font-bold tracking-tighter text-center mb-10">
           Sanatçı
-        </h2>
+        </h2> */}
         <div className="grid grid-cols-1 md:px-20 gap-8 lg:grid-cols-2">
           {/* Sabit Resim */}
           <div className="relative ">
@@ -27,7 +27,7 @@ export function ArtistSection() {
               </h2>
             </div>
 
-            <div className="space-y-6 text-muted-foreground">
+            <div className="space-y-6 text-lg text-muted-foreground">
               <p>
                 Serap Paçacı, geleneksel Türk halı motiflerini dijital sanatla
                 buluşturan yenilikçi bir sanatçıdır. Anadolu'nun zengin kültürel

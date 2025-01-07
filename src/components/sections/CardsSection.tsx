@@ -90,7 +90,7 @@ export function CardsSection() {
   return (
     <section id="cards" className="py-20">
       <div className="container px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">
+        <h2 className="text-4xl font-bold tracking-tighter text-center mb-10">
           Motifler
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
